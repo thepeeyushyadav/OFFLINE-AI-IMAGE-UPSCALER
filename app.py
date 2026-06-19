@@ -1,3 +1,5 @@
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
 import sys
 from torchvision.transforms import functional as F
 # Monkey-patch: fixes basicsr/realesrgan bug with torchvision >= 0.20
