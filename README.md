@@ -1,65 +1,83 @@
+<div align="center">
+
 # 🪄 Offline AI Image Upscaler
 
-![App Screenshot](image.png)
-
-An offline, easy-to-use AI Image Upscaler built with Python and Streamlit. It uses the powerful **Real-ESRGAN** model to upscale and enhance blurry or low-resolution images by 4x. The application is fully optimized for local execution with GPU acceleration (CUDA) support for blazing-fast inference, even on laptop GPUs (like the RTX 3050).
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://offline-ai-image-upscaler-izhsuhcptv5gwxaawoswei.streamlit.app/)
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)](#)
+[![PyTorch](https://img.shields.io/badge/PyTorch-AI-ee4c2c?logo=pytorch&logoColor=white)](#)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](#)
 
 **Developed by: Piyush**
 
+A powerful, easy-to-use **AI Image Upscaler** built with Streamlit and Real-ESRGAN. <br> Enhance, sharpen, and upscale your low-resolution or blurry images by 4x without losing quality!
+
+<h3><a href="https://offline-ai-image-upscaler-izhsuhcptv5gwxaawoswei.streamlit.app/">🔴 CLICK HERE FOR LIVE DEMO 🔴</a></h3>
+
+</div>
+
 ---
 
-## ✨ Features
+<div align="center">
+  <img src="./image.png" alt="App Screenshot" width="800" style="border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
+</div>
 
-- **100% Offline:** No cloud APIs or internet connection required after the initial model download.
-- **AI-Powered Upscaling:** Utilizes the state-of-the-art `RealESRGAN_x4plus` model for high-quality image enhancement.
-- **GPU Acceleration (CUDA):** Automatically detects and utilizes NVIDIA GPUs for fast processing, bypassing heavy CPU loads.
-- **Memory Optimized (Tiling):** Includes dynamic image tiling to prevent Out-Of-Memory (OOM) errors on systems with limited VRAM (e.g., 4GB or 6GB GPUs).
-- **Interactive UI:** A beautiful and simple web interface built with Streamlit.
-- **Side-by-Side Comparison:** View original and upscaled images with dimensions before downloading.
+---
 
-## 🚀 Installation & Setup
+## ✨ Key Features
+
+- **🌐 Live Cloud Version:** Instantly accessible via Streamlit Community Cloud.
+- **⚡ AI-Powered Upscaling:** Utilizes the state-of-the-art `RealESRGAN_x4plus` model for stunning image enhancement.
+- **💻 100% Offline Capability:** Can be run completely offline on your local machine.
+- **🎮 GPU Acceleration (CUDA):** Automatically detects and uses your NVIDIA GPU (like RTX 3050) for blazing-fast processing locally.
+- **🧩 Memory Optimized:** Smart image tiling prevents Out-Of-Memory (OOM) crashes on systems with limited VRAM.
+- **🎨 Interactive UI:** A clean, modern, and beautiful web interface.
+- **🔍 Side-by-Side Comparison:** Compare the original and upscaled images with dynamic dimensions before saving.
+
+---
+
+## 🚀 How to Run Locally
+
+Want to run it on your own PC for maximum privacy and GPU speed? Follow these steps:
 
 ### Prerequisites
-- Python 3.8 or newer.
-- An NVIDIA GPU (highly recommended for speed) with updated drivers.
-- [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads) installed if you wish to use GPU acceleration.
+- Python 3.8 to 3.11 installed.
+- (Optional but Recommended) An NVIDIA GPU with updated drivers for fast upscaling.
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/offline-ai-image-upscaler.git
-cd "offline-ai-image-upscaler"
+git clone https://github.com/thepeeyushyadav/OFFLINE-AI-IMAGE-UPSCALER.git
+cd OFFLINE-AI-IMAGE-UPSCALER
 ```
 
 ### 2. Install Dependencies
 
-Install the required Python packages. If you have an NVIDIA GPU, make sure to install the CUDA version of PyTorch for the best performance.
+Install the required Python packages. 
 
 ```bash
-# Install PyTorch with CUDA support (Example for CUDA 12.1)
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-
-# Install the rest of the requirements
 pip install -r requirements.txt
 ```
+*(Note: To use GPU acceleration locally, you may need to install the CUDA version of PyTorch separately using `pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121`)*
 
-### 3. Run the Application
-
-Start the Streamlit server:
+### 3. Start the App
 
 ```bash
 streamlit run app.py
 ```
 
-The application will open in your default web browser at `http://localhost:8501`.
+The application will open automatically in your browser at `http://localhost:8501`.
 
-## 🛠️ Built With
+---
 
-- [Streamlit](https://streamlit.io/) - For the beautiful frontend web interface.
-- [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN) - For the core AI upscaling algorithms.
-- [PyTorch](https://pytorch.org/) - For running the deep learning models.
-- [OpenCV](https://opencv.org/) & [Pillow](https://python-pillow.org/) - For image processing.
+## 🛠️ Tech Stack
 
-## 📝 License
+- **[Streamlit](https://streamlit.io/)** - For the interactive web interface.
+- **[Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN)** - Core AI algorithms.
+- **[PyTorch](https://pytorch.org/)** - Deep learning backend.
+- **[OpenCV](https://opencv.org/)** & **[Pillow](https://python-pillow.org/)** - Image processing and manipulation.
 
-This project is open-source and available under the [MIT License](LICENSE).
+---
+
+<div align="center">
+  Made with ❤️ by <b>Piyush</b>
+</div>
