@@ -64,6 +64,13 @@ if uploaded_file is not None:
     # Read the image
     original_image = Image.open(uploaded_file).convert("RGB")
     
+    # Cloud RAM Safety: Streamlit Cloud CPU has a strict 1GB RAM limit.
+    # On CPU, keep input dimension under 600px so 4x upscale (up to 2400px) runs smoothly without crashing the container.
+    MAX_CPU_DIM = 600
+    if dev.type == 'cpu' and (original_image.width > MAX_CPU_DIM or original_image.height > MAX_CPU_DIM):
+        st.info(f"⚡ Cloud CPU Optimization: Input scaled to max {MAX_CPU_DIM}px to prevent server crash (upscaled output will be high-res ~{MAX_CPU_DIM*4}px). Run locally for full unrestricted GPU resolution!")
+        original_image.thumbnail((MAX_CPU_DIM, MAX_CPU_DIM), Image.Resampling.LANCZOS)
+    
     st.markdown("---")
     
     col1, col2 = st.columns(2)

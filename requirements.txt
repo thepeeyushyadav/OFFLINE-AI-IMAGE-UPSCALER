@@ -3,6 +3,7 @@ torch
 torchvision
 streamlit
 opencv-python-headless
+numpy<2
 Pillow
 basicsr>=1.4.2
 realesrgan

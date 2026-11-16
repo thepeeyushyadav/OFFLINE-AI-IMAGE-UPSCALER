@@ -5,6 +5,7 @@ from PIL import Image
 import os
 import urllib.request
 import sys
+import gc
 from torchvision.transforms import functional as F
 
 # Monkey-patch to fix basicsr bug with newer torchvision versions
@@ -35,13 +36,14 @@ def load_model(device):
         urllib.request.urlretrieve(url, model_path)
         print("Download complete.")
     
-    # Initialize the RealESRGANer
+    # Initialize the RealESRGANer (use smaller tile on CPU to prevent Out-Of-Memory crashes)
+    tile_size = 200 if device.type == 'cpu' else 400
     upsampler = RealESRGANer(
         scale=4,
         model_path=model_path,
         dni_weight=None,
         model=model,
-        tile=400, # Set to > 0 if you get Out Of Memory (OOM) errors (e.g., 400)
+        tile=tile_size,
         tile_pad=10,
         pre_pad=0,
         half=device.type == 'cuda', # Use half-precision on GPU to save VRAM and speed up
@@ -59,6 +61,12 @@ def enhance_image(image_pil: Image.Image, upsampler: RealESRGANer) -> Image.Imag
     
     # Convert back to PIL Image (RGB)
     output_pil = Image.fromarray(cv2.cvtColor(output, cv2.COLOR_BGR2RGB))
+    
+    # Clean up memory immediately
+    del img_cv2
+    del output
+    gc.collect()
+    
     return output_pil
 
 if __name__ == "__main__":
