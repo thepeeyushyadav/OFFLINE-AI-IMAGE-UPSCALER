@@ -5,7 +5,12 @@ from torchvision.transforms import functional as F
 # Monkey-patch: fixes basicsr/realesrgan bug with torchvision >= 0.20
 sys.modules['torchvision.transforms.functional_tensor'] = F
 
-
+import streamlit as st
+import torch
+from PIL import Image
+import io
+import time
+from upscaler import get_device, load_model, enhance_image # Import backend functions from upscaler.py
 
 
 st.set_page_config(page_title="AI Image Upscaler", page_icon="🪄", layout="wide")
