@@ -8,9 +8,7 @@ sys.modules['torchvision.transforms.functional_tensor'] = F
 import streamlit as st
 from PIL import Image
 import time
-import io
-from upscaler import get_device, load_model, enhance_image
-import torch
+
 
 st.set_page_config(page_title="AI Image Upscaler", page_icon="🪄", layout="wide")
 
